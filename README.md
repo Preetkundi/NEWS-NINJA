@@ -4,12 +4,6 @@
 
 ---
 
-## 🚀 Live Demo
-
-🌍 [Deployed Version](https://your-live-deployment.com) *(Add your own deployment URL)*
-
----
-
 ## 📸 Preview
 <img width="1916" height="935" alt="image" src="https://github.com/user-attachments/assets/6567eff8-c9be-4f41-aee3-09c9ea87799a" />
 <img width="1919" height="771" alt="image" src="https://github.com/user-attachments/assets/527b518d-a1a8-41ec-8256-8894f9b9a80b" />
