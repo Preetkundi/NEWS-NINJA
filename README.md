@@ -1,73 +1,93 @@
-# 📰 NewsNinja — Real-Time AI News Summarizer with Voice
+NewsNinja - Stealthy News Aggregator
 
-**NewsNinja** is a modern AI-powered web app that scrapes live news using **BrightData**, summarizes it using **Claude (Anthropic API)**, and reads the summary aloud using **ElevenLabs TTS**. It features a modular architecture using **FastAPI** (via `backend.py`), a clean **Streamlit UI (`frontend.py`)**, and a custom **Multi-Component Pipeline (MCP)** system to manage scraping, LLMs, and audio.
-
----
-
-## 📸 Preview
-<img width="1916" height="935" alt="image" src="https://github.com/user-attachments/assets/6567eff8-c9be-4f41-aee3-09c9ea87799a" />
-<img width="1919" height="771" alt="image" src="https://github.com/user-attachments/assets/527b518d-a1a8-41ec-8256-8894f9b9a80b" />
-
-
-
+Your personal news ninja that silently gathers headlines and Reddit reactions, then delivers audio briefings straight to your ears. *No scroll, just soul.*
 
 ---
-
-## ✨ Key Features
-
-- 🌐 **Live News Fetching** via BrightData Proxy API
-- 🧠 **Summarization** using Claude (Anthropic API)
-- 🔊 **Natural Voice Playback** using ElevenLabs
-- ⚡ **Modular Backend** with LangChain + MCP
-- 🖥️ **Streamlit UI** for both frontend and backend
-- 📜 **FastAPI Swagger Docs** available at `/docs`
+FEATURES
+- 🗞️ Scrape premium news websites (bypassing paywalls)
+- 🕵️♂️ Extract live Reddit reactions (even from JS-heavy threads)
+- 🔊 AI-powered audio summaries (text-to-speech with ElevenLabs)
+- ⚡ Real-time updates (thanks to Bright Data's MCP magic)
 
 ---
-
-## 🛠️ Tech Stack
-
-| Layer           | Technology                         |
-|------------------|-------------------------------------|
-| 📡 Scraper        | BrightData Proxy + News Queries     |
-| 🧠 LLM            | Claude (Anthropic API)              |
-| 🔊 Text-to-Speech | ElevenLabs API                     |
-| 🧩 Pipeline       | Custom MCP with LangChain           |
-| ⚙️ Backend        | FastAPI (served via Streamlit)      |
-| 💻 Frontend       | Streamlit UI (`frontend.py`)        |
+PREREQUISITES
+- Python 3.9+
+- Bright Data account (https://brightdata.com)
+- ElevenLabs account (https://elevenlabs.io)
 
 ---
+QUICK START
 
-## 📁 Project Structure
-├── backend.py # FastAPI + MCP backend (run with Streamlit)
-├── frontend.py # Streamlit UI (user interface)
-├── components/ # Streamlit UI components
-├── utils/ # Scraping, TTS, and summarization modules
-├── .env # API keys and config (not committed)
-├── requirements.txt # Python dependencies
-└── README.md # Documentation
+1. Clone the Dojo
+```
+git clone https://github.com/AIwithhassan/newsninja.git
+cd NewsNinja
+```
 
+2. Install Dependencies
+```
+pipenv install
+pipenv shell
+```
+
+3. Ninja Secrets (Environment Setup)
+Create .env file:
+```
+cp .env.example .env
+```
+
+Configure your secrets in .env:
+```
+# Bright Data
+BRIGHTDATA_MCP_KEY="your_mcp_api_key"
+BROWSER_AUTH="your_browser_auth_token"
+
+# ElevenLabs 
+ELEVENLABS_API_KEY="your_text_to_speech_key"
+```
+
+4. Prepare Your Weapons (Bright Data Setup)
+- Create MCP zone: https://brightdata.com/cp/zones
+- Enable browser authentication
+- Copy credentials to .env
 
 ---
+RUNNING THE NINJA
 
-## 🔧 Installation & Setup
-streamlit run backend.py
-✅ The FastAPI backend will start. You can access interactive API docs at:
+First terminal (Backend):
+```
+pipenv run python backend.py
+```
 
-streamlit run frontend.py
+Second terminal (Frontend):
+```
+pipenv run streamlit run frontend.py
+```
 
-### 1️⃣ Clone the Repository
+---
+PROJECT STRUCTURE
+```
+.
+├── frontend.py          # Streamlit UI
+├── backend.py           # API & data processing  
+├── utils.py             # UTILS  
+├── news_scraper.py      # News Scraper  
+├── reddit_scraper.py    # Reddit Scraper  
+├── models.py            # Pydantic model
+├── Pipfile              # Dependency scroll
+├── .env.example         # Secret map template
+└── requirements.txt     # Alternative dependency list
+```
 
-```bash
-git clone https://github.com/yourusername/newsninja.git
-cd newsninja
+---
+NOTES
+- First scrape takes 15-20 seconds (good ninjas are patient)
+- Reddit scraping uses real browser emulation via MCP
+- Keep .env file secret (ninjas never reveal their tools)
 
+---
+SUPPORT
+Open an issue: https://github.com/yourusername/NewsNinja/issues
+Bright Data support: https://brightdata.com/support
 
-🧪 Example Use Cases
-🧠 Quickly summarize breaking news
-
-🗣️ Convert articles to voice and listen while commuting
-
-📰 Build custom RSS-style readers powered by LLMs
-
-🔍 Personal AI News Assistant for daily briefings
-
+*"In the darkness of information overload, be the ninja."* 🌑
